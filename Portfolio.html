@@ -1,0 +1,973 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08110e">
+<meta name="description" content="Agrima Tripathi — Computer Science student, founder of Rhetorix, developer and aspiring entrepreneur.">
+<title>Agrima Tripathi | Developer & Entrepreneur</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#08110e;
+  --surface:#101b16;
+  --surface2:#17251c;
+  --text:#f0f4ed;
+  --muted:#a1b0a5;
+  --green:#68df9a;
+  --gold:#e7c779;
+  --border:rgba(170,205,177,.16);
+}
+body.light {
+  --bg:#f5f6ef;
+  --surface:#fff;
+  --surface2:#eaf0e8;
+  --text:#15251b;
+  --muted:#637168;
+  --green:#087a45;
+  --gold:#a77a20;
+  --border:rgba(25,65,39,.15);
+}
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth;scroll-padding-top:90px}
+body {
+  background:var(--bg);color:var(--text);
+  font-family:'DM Sans',sans-serif;line-height:1.7;
+  transition:background .3s,color .3s;overflow-x:hidden;
+}
+a {text-decoration:none;color:inherit}
+button,input,textarea {font:inherit}
+button,a { -webkit-tap-highlight-color:transparent }
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible {
+  outline:2px solid var(--green);outline-offset:3px
+}
+.container {width:min(1120px,90%);margin:auto}
+.section {padding:90px 0}
+.section-title {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(2rem,5vw,3rem);line-height:1.2;
+  letter-spacing:-1px;margin-bottom:15px
+}
+.section-desc {color:var(--muted);max-width:650px;margin-bottom:35px}
+.eyebrow {
+  color:var(--green);font-size:.78rem;letter-spacing:3px;
+  text-transform:uppercase;font-weight:700;margin-bottom:14px
+}
+.gradient {
+  background:linear-gradient(110deg,var(--green),var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.btn {
+  display:inline-flex;justify-content:center;align-items:center;gap:8px;
+  padding:12px 19px;border-radius:9px;border:1px solid var(--border);
+  cursor:pointer;font-size:.88rem;font-weight:600;transition:.25s
+}
+.btn:hover {transform:translateY(-3px)}
+.btn-primary {background:var(--green);color:#07130b;border-color:var(--green)}
+.btn-secondary {background:var(--surface);color:var(--text)}
+.btn-gold {background:transparent;color:var(--gold);border-color:var(--gold)}
+.card {
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;transition:.25s
+}
+.card:hover {transform:translateY(-4px);border-color:var(--green)}
+
+/* Navigation */
+.navbar {
+  position:sticky;top:0;z-index:100;
+  background:var(--bg);background:color-mix(in srgb,var(--bg) 90%,transparent);
+  backdrop-filter:blur(16px);border-bottom:1px solid var(--border)
+}
+.nav-inner {min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand {display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:700}
+.brand-mark {
+  width:42px;height:42px;display:grid;place-items:center;
+  border:1px solid var(--gold);border-radius:12px;color:var(--gold);
+  background:var(--surface)
+}
+.nav-links {display:flex;align-items:center;gap:22px}
+.nav-links a {font-size:.85rem;color:var(--muted)}
+.nav-links a:hover {color:var(--green)}
+.nav-actions {display:flex;gap:8px}
+.icon-btn {
+  width:40px;height:40px;border:1px solid var(--border);
+  background:var(--surface);color:var(--text);border-radius:10px;
+  cursor:pointer;font-size:1rem
+}
+.menu-btn {display:none}
+
+/* Hero */
+.hero {padding:95px 0;position:relative;overflow:hidden}
+.hero:before {
+  content:"";position:absolute;width:450px;height:450px;right:-100px;top:20px;
+  background:radial-gradient(circle,rgba(104,223,154,.13),transparent 70%);
+  pointer-events:none
+}
+.hero-grid {display:grid;grid-template-columns:1.35fr .8fr;gap:45px;align-items:center}
+.status {
+  display:inline-flex;align-items:center;gap:10px;padding:7px 13px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:30px;font-size:.8rem;color:var(--muted);margin-bottom:25px
+}
+.status-dot {width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+.hero h1 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(3rem,7vw,5.5rem);line-height:1.02;
+  letter-spacing:-3px;margin-bottom:22px
+}
+.hero h1 span {display:block}
+.hero-description {max-width:600px;color:var(--muted);font-size:1.03rem;margin-bottom:25px}
+.hero-buttons {display:flex;flex-wrap:wrap;gap:11px}
+.social-row {display:flex;flex-wrap:wrap;gap:20px;margin-top:25px}
+.social-row a {font-size:.85rem;color:var(--muted)}
+.social-row a:hover {color:var(--green)}
+.hero-visual {min-height:350px;display:grid;place-items:center;position:relative}
+.orbit {
+  width:275px;height:275px;border:1px solid var(--border);
+  border-radius:50%;display:grid;place-items:center;
+  position:relative;animation:float 6s ease-in-out infinite
+}
+.orbit:before,.orbit:after {
+  content:"";position:absolute;border:1px dashed rgba(104,223,154,.3);border-radius:50%
+}
+.orbit:before {inset:22px}
+.orbit:after {inset:-23px;border-color:rgba(231,199,121,.25)}
+.initials {
+  width:170px;height:170px;border:1px solid var(--gold);
+  border-radius:32px;display:grid;place-items:center;
+  background:linear-gradient(145deg,#173b2a,#0c1912);
+  color:var(--gold);font:700 4.4rem 'Space Grotesk';
+  box-shadow:0 0 60px rgba(104,223,154,.1)
+}
+.float-tag {
+  position:absolute;background:var(--surface);border:1px solid var(--border);
+  border-radius:9px;padding:9px 12px;font-size:.77rem
+}
+.tag-one {top:35px;right:0;color:var(--gold)}
+.tag-two {bottom:35px;left:0;color:var(--green)}
+@keyframes float {0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* Highlight cards */
+.highlights {display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.highlight {padding:24px}
+.highlight h3 {font-family:'Space Grotesk';margin-bottom:7px}
+.highlight p {font-size:.9rem;color:var(--muted)}
+
+/* About */
+.about-grid {display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:start}
+.about-copy p {color:var(--muted);margin-bottom:17px}
+.profile {padding:27px}
+.info-list {display:grid;gap:12px;margin-top:20px}
+.info-item {
+  display:flex;justify-content:space-between;gap:18px;
+  border-bottom:1px solid var(--border);padding-bottom:10px;font-size:.88rem
+}
+.info-item span:first-child {color:var(--muted)}
+.info-item span:last-child {text-align:right;overflow-wrap:anywhere}
+
+/* Interests */
+.skills-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.skill-card {padding:23px}
+.skill-icon {font-size:1.7rem;margin-bottom:10px}
+.skill-card h3 {font-family:'Space Grotesk';margin-bottom:8px}
+.skill-card p {font-size:.9rem;color:var(--muted)}
+
+/* Projects */
+.filters {display:flex;flex-wrap:wrap;gap:9px;margin-bottom:28px}
+.filter-btn {
+  padding:9px 15px;border-radius:30px;background:var(--surface);
+  color:var(--muted);border:1px solid var(--border);cursor:pointer
+}
+.filter-btn.active,.filter-btn:hover {background:var(--green);color:#07130b;border-color:var(--green)}
+.projects-grid {display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.project-card {overflow:hidden;display:flex;flex-direction:column}
+.project-cover {
+  min-height:160px;display:grid;place-items:center;position:relative;
+  background:radial-gradient(circle at 20% 20%,rgba(104,223,154,.15),transparent 50%),var(--surface2);
+  border-bottom:1px solid var(--border)
+}
+.project-cover:before {
+  content:"";position:absolute;width:170px;height:170px;
+  border:1px solid var(--border);border-radius:50%
+}
+.project-symbol {font:700 3rem 'Space Grotesk';color:var(--green);position:relative}
+.project-number {position:absolute;top:14px;left:17px;color:var(--muted);font-size:.72rem;letter-spacing:2px}
+.project-body {padding:23px;display:flex;flex-direction:column;flex:1}
+.project-type {font-size:.73rem;letter-spacing:1.3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.project-body h3 {font:600 1.4rem 'Space Grotesk';margin-bottom:9px}
+.project-body p {color:var(--muted);font-size:.9rem;margin-bottom:18px;flex:1}
+.tags {display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
+.tags span {padding:4px 8px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;font-size:.73rem;color:var(--muted)}
+.project-actions {display:flex;flex-wrap:wrap;gap:9px}
+.project-actions .btn {flex:1;min-width:110px;font-size:.8rem;padding:10px}
+.project-card[hidden] {display:none!important}
+
+/* Achievements */
+.achievement-list {display:grid;gap:15px}
+.achievement {display:grid;grid-template-columns:52px 1fr;gap:17px;padding:22px;align-items:start}
+.achievement-icon {
+  width:50px;height:50px;display:grid;place-items:center;
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:13px;color:var(--gold);font-size:1.35rem
+}
+.achievement h3 {font-family:'Space Grotesk';margin-bottom:5px}
+.achievement p {font-size:.9rem;color:var(--muted)}
+
+/* Contact */
+.contact-grid {display:grid;grid-template-columns:.85fr 1.15fr;gap:40px}
+.contact-copy p {color:var(--muted);margin-bottom:24px}
+.contact-links {display:grid;gap:12px}
+.contact-link {
+  display:block;padding:13px 15px;background:var(--surface);
+  border:1px solid var(--border);border-radius:10px;overflow-wrap:anywhere
+}
+.contact-link:hover {border-color:var(--green)}
+.contact-link small {display:block;color:var(--muted)}
+.contact-link strong {font-size:.9rem}
+.contact-form {padding:26px}
+.form-group {margin-bottom:17px}
+.form-group label {display:block;font-size:.85rem;margin-bottom:7px}
+.form-group input,.form-group textarea {
+  width:100%;padding:12px 13px;border-radius:9px;
+  border:1px solid var(--border);background:var(--bg);color:var(--text)
+}
+.form-group textarea {min-height:125px;resize:vertical}
+.form-note {font-size:.78rem;color:var(--muted);margin-top:10px}
+
+/* Footer */
+footer {border-top:1px solid var(--border);padding:25px 0}
+.footer-inner {display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.footer-inner p {font-size:.84rem;color:var(--muted)}
+.back-top {color:var(--green)}
+
+/* Scroll animations */
+.reveal {opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.reveal.visible {opacity:1;transform:translateY(0)}
+.toast {
+  position:fixed;z-index:200;bottom:22px;left:50%;
+  transform:translate(-50%,15px);padding:11px 17px;
+  border-radius:9px;background:var(--green);color:#07130b;
+  font-size:.88rem;font-weight:600;opacity:0;pointer-events:none;transition:.25s;
+  max-width:90%;text-align:center
+}
+.toast.show {opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:900px) {
+  .nav-links {gap:13px}
+  .hero-grid {gap:25px}
+  .skills-grid {grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px) {
+  .section {padding:70px 0}
+  .nav-inner {min-height:68px}
+  .menu-btn {display:inline-block}
+  .nav-links {
+    display:none;position:absolute;top:68px;left:0;right:0;
+    padding:18px 5%;background:var(--surface);
+    border-bottom:1px solid var(--border);
+    flex-direction:column;align-items:stretch;gap:0
+  }
+  .nav-links.open {display:flex}
+  .nav-links a {padding:11px 0}
+  .hero {padding:70px 0}
+  .hero-grid,.about-grid,.contact-grid {grid-template-columns:1fr}
+  .hero-grid {gap:35px}
+  .hero-visual {min-height:300px}
+  .orbit {width:230px;height:230px}
+  .initials {width:145px;height:145px;font-size:3.6rem}
+  .highlights {grid-template-columns:1fr}
+  .projects-grid {grid-template-columns:1fr}
+  .about-grid,.contact-grid {gap:28px}
+}
+@media(max-width:430px) {
+  .container {width:91%}
+  .brand {font-size:.84rem;gap:7px}
+  .brand-mark,.icon-btn {width:37px;height:37px}
+  .hero h1 {font-size:3rem;letter-spacing:-2px}
+  .hero-buttons .btn {width:100%}
+  .skills-grid {grid-template-columns:1fr}
+  .info-item {flex-direction:column;gap:2px}
+  .info-item span:last-child {text-align:left}
+  .achievement {grid-template-columns:42px 1fr;gap:12px;padding:16px}
+  .achievement-icon {width:42px;height:42px}
+  .contact-form {padding:19px}
+  .project-actions .btn {min-width:100%}
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {scroll-behavior:auto!important;animation:none!important;transition:none!important}
+  .reveal {opacity:1;transform:none}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark">AT</span>
+      <span>Agrima Tripathi<span class="gradient">.</span></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Interests</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">☀</button>
+      <button class="icon-btn menu-btn" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="status"><span class="status-dot"></span> Student · Founder · Aspiring Entrepreneur</div>
+      <p class="eyebrow">Welcome to my digital space</p>
+
+      <h1>Hi, I'm <span class="gradient">Agrima</span> Tripathi.</h1>
+
+      <p class="hero-description">
+        A Computer Science student, founder, and aspiring entrepreneur
+        passionate about building useful digital products, organizing
+        debate events, and exploring technology.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">Explore My Work ↗</a>
+        <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+        <a href="Agrima_Tripathi_Resume_V3.pdf" download class="btn btn-gold">↓ Download Resume</a>
+      </div>
+
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/agrima-tripathi-733ab1410" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="https://github.com/agrimatripathi1118-sketch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="mailto:agrimatripathi1118@gmail.com">Email ↗</a>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="orbit"><div class="initials">AT</div></div>
+      <div class="float-tag tag-one">✦ Entrepreneurial Mindset</div>
+      <div class="float-tag tag-two">⌘ Building Digital Products</div>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section style="padding:10px 0 35px">
+  <div class="container highlights">
+    <article class="card highlight reveal">
+      <h3><span class="gradient">01.</span> Development</h3>
+      <p>Building and deploying useful web applications and exploring technology.</p>
+    </article>
+    <article class="card highlight reveal">
+      <h3><span class="gradient">02.</span> Entrepreneurship</h3>
+      <p>Turning ideas into projects, digital products, and community initiatives.</p>
+    </article>
+    <article class="card highlight reveal">
+      <h3><span class="gradient">03.</span> Communication</h3>
+      <p>Organizing debate events and participating in youth activities.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <p class="eyebrow">A little about me</p>
+      <h2 class="section-title">Ideas into <span class="gradient">action.</span></h2>
+
+      <div class="about-copy">
+        <p>
+          I'm Agrima Tripathi, a B.Tech Computer Science and Engineering
+          student at UIET, Chhatrapati Shahu Ji Maharaj University,
+          Kanpur, Uttar Pradesh.
+        </p>
+        <p>
+          My interests lie at the intersection of software development,
+          entrepreneurship, communication, and problem-solving.
+          I enjoy creating useful digital experiences and organizing
+          initiatives that bring people together.
+        </p>
+        <p>
+          Through my projects and activities, I'm working to grow as
+          both a developer and an entrepreneur while continuing to
+          learn and explore new ideas.
+        </p>
+      </div>
+
+      <a href="#contact" class="btn btn-primary">Get in Touch ↗</a>
+    </div>
+
+    <div class="card profile reveal">
+      <p class="eyebrow">Personal profile</p>
+      <h3 style="font:600 1.5rem 'Space Grotesk'">Quick Overview</h3>
+
+      <div class="info-list">
+        <div class="info-item"><span>Name</span><span>Agrima Tripathi</span></div>
+        <div class="info-item"><span>Education</span><span>B.Tech CSE</span></div>
+        <div class="info-item"><span>Academic Year</span><span>2nd Year</span></div>
+        <div class="info-item"><span>College</span><span>UIET, CSJMU Kanpur</span></div>
+        <div class="info-item"><span>Location</span><span>Kanpur, Uttar Pradesh</span></div>
+        <div class="info-item"><span>Languages</span><span>Hindi, English</span></div>
+        <div class="info-item"><span>Focus</span><span>Development & Entrepreneurship</span></div>
+        <div class="info-item"><span>Founder</span><span>Rhetorix</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section class="section" id="skills" style="background:var(--surface)">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">What drives me</p>
+      <h2 class="section-title">Areas of <span class="gradient">interest.</span></h2>
+      <p class="section-desc">Fields I'm exploring through my education, projects, and initiatives.</p>
+    </div>
+
+    <div class="skills-grid">
+      <article class="card skill-card reveal">
+        <div class="skill-icon">⌘</div><h3>Web Development</h3>
+        <p>Creating useful web experiences and deploying digital products.</p>
+      </article>
+      <article class="card skill-card reveal">
+        <div class="skill-icon">✧</div><h3>Product Building</h3>
+        <p>Turning practical ideas into working applications.</p>
+      </article>
+      <article class="card skill-card reveal">
+        <div class="skill-icon">◈</div><h3>Entrepreneurship</h3>
+        <p>Developing ideas and learning through execution.</p>
+      </article>
+      <article class="card skill-card reveal">
+        <div class="skill-icon">⚖</div><h3>Debating & Communication</h3>
+        <p>Organizing debates, public speaking, and intellectual discussion.</p>
+      </article>
+      <article class="card skill-card reveal">
+        <div class="skill-icon">◉</div><h3>Technology Exploration</h3>
+        <p>Exploring emerging technologies and real-world applications.</p>
+      </article>
+      <article class="card skill-card reveal">
+        <div class="skill-icon">↗</div><h3>Leadership & Initiatives</h3>
+        <p>Coordinating activities and turning ideas into organized projects.</p>
+      </article>
+    </div>
+
+    <p style="font-size:.8rem;color:var(--muted);margin-top:18px">
+      These are areas of interest and do not imply mastery of every field.
+    </p>
+  </div>
+</section>
+
+
+<!-- PROJECTS SECTION -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Selected Work</p>
+      <h2 class="section-title">
+        Projects I've <span class="gradient">Built.</span>
+      </h2>
+      <p class="section-desc">
+        A showcase of my digital projects and entrepreneurial initiatives.
+        Select a category to filter the projects.
+      </p>
+    </div>
+
+    <div class="filters reveal" role="group" aria-label="Filter projects">
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All Projects</button>
+      <button class="filter-btn" data-filter="web" aria-pressed="false">Web Apps</button>
+      <button class="filter-btn" data-filter="game" aria-pressed="false">Games</button>
+      <button class="filter-btn" data-filter="initiative" aria-pressed="false">Initiatives</button>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+
+      <!-- PROJECT 1: CURIFY -->
+      <article class="card project-card reveal" data-category="web">
+        <div class="project-cover">
+          <span class="project-number">PROJECT 01</span>
+          <span class="project-symbol">C+</span>
+        </div>
+        <div class="project-body">
+          <span class="project-type">Medical Web Application</span>
+          <h3>Curify</h3>
+          <p>
+            A medical prescription web project featuring patient, doctor,
+            and medicine details, prescription creation, downloading,
+            and printing.
+          </p>
+          <div class="tags">
+            <span>Web App</span>
+            <span>Prescriptions</span>
+            <span>Print & Download</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-primary" href="https://curify.netlify.app"
+               target="_blank" rel="noopener noreferrer">Visit Website ↗</a>
+            <button class="btn btn-secondary details-btn"
+              data-title="Curify"
+              data-description="A medical prescription website featuring patient, doctor, and medicine details, plus prescription creation, download, and printing.">
+              Details
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 2: RHETORIX -->
+      <article class="card project-card reveal" data-category="initiative">
+        <div class="project-cover">
+          <span class="project-number">PROJECT 02</span>
+          <span class="project-symbol">RX</span>
+        </div>
+        <div class="project-body">
+          <span class="project-type">Debate Platform</span>
+          <h3>Rhetorix</h3>
+          <p>
+            An online debate platform focused on organizing competitions
+            and creating opportunities for discussion and intellectual engagement.
+          </p>
+          <div class="tags">
+            <span>Founder</span>
+            <span>Debating</span>
+            <span>Event Organization</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-primary" href="https://rhetorixunion.netlify.app"
+               target="_blank" rel="noopener noreferrer">Visit Website ↗</a>
+            <button class="btn btn-secondary details-btn"
+              data-title="Rhetorix"
+              data-description="Founded by Agrima Tripathi, Rhetorix is an online debate platform with the tagline Where voices shape ideas.">
+              Details
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 3: AESTHETIC QUEST -->
+      <article class="card project-card reveal" data-category="web">
+        <div class="project-cover">
+          <span class="project-number">PROJECT 03</span>
+          <span class="project-symbol">AQ</span>
+        </div>
+        <div class="project-body">
+          <span class="project-type">Current Affairs Website</span>
+          <h3>Aesthetic Quest</h3>
+          <p>
+            A current-affairs website for learners preparing for competitive
+            examinations, featuring news categories and learning-oriented content.
+          </p>
+          <div class="tags">
+            <span>Current Affairs</span>
+            <span>Education</span>
+            <span>Web App</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-primary"
+               href="https://aesthetic-quest-84e375.netlify.app"
+               target="_blank" rel="noopener noreferrer">Visit Website ↗</a>
+            <button class="btn btn-secondary details-btn"
+              data-title="Aesthetic Quest"
+              data-description="A current-affairs website for learners preparing for UPSC, SSC, banking, railways, and other competitive examinations.">
+              Details
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 4: HOPVENTURE -->
+      <article class="card project-card reveal" data-category="game">
+        <div class="project-cover">
+          <span class="project-number">PROJECT 04</span>
+          <span class="project-symbol">H!</span>
+        </div>
+        <div class="project-body">
+          <span class="project-type">Retro 2D Platformer</span>
+          <h3>Hopventure</h3>
+          <p>
+            A retro-inspired 2D platformer game project designed around
+            a classic platform-game experience.
+          </p>
+          <div class="tags">
+            <span>Game Development</span>
+            <span>2D Game</span>
+            <span>Platformer</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-primary" href="https://hopventures.netlify.app"
+               target="_blank" rel="noopener noreferrer">Explore Game ↗</a>
+            <button class="btn btn-secondary details-btn"
+              data-title="Hopventure"
+              data-description="A retro-inspired 2D platformer game project. Visit the project website to explore its current build.">
+              Details
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 5: KNOWLEDGE KNIGHTS -->
+      <article class="card project-card reveal" data-category="initiative">
+        <div class="project-cover">
+          <span class="project-number">PROJECT 05</span>
+          <span class="project-symbol">KK</span>
+        </div>
+        <div class="project-body">
+          <span class="project-type">Educational Initiative</span>
+          <h3>Knowledge Knights</h3>
+          <p>
+            An educational resource initiative focused on helping students
+            access study materials and learning resources.
+          </p>
+          <div class="tags">
+            <span>Education</span>
+            <span>Learning Resources</span>
+            <span>Initiative</span>
+          </div>
+          <div class="project-actions">
+            <button class="btn btn-secondary details-btn"
+              data-title="Knowledge Knights"
+              data-description="An educational initiative focused on helping students access study materials and learning resources.">
+              About Project
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS SECTION -->
+<section class="section" id="achievements" style="background:var(--surface)">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Milestones & Experiences</p>
+      <h2 class="section-title">
+        My <span class="gradient">Journey.</span>
+      </h2>
+      <p class="section-desc">
+        Experiences that have contributed to my learning, confidence, and growth.
+      </p>
+    </div>
+
+    <div class="achievement-list">
+
+      <article class="card achievement reveal">
+        <div class="achievement-icon">🏆</div>
+        <div>
+          <h3>Smart India Hackathon — Internal Round</h3>
+          <p>
+            Participated as a team member of Decoded Ledger in the CSJMU
+            internal rounds of SIH 2025 and SIH 2026.
+          </p>
+        </div>
+      </article>
+
+      <article class="card achievement reveal">
+        <div class="achievement-icon">🥈</div>
+        <div>
+          <h3>1st Runner-Up — Eloquence Club</h3>
+          <p>
+            Achieved second prize in the Eloquence Club Debate Competition.
+          </p>
+        </div>
+      </article>
+
+      <article class="card achievement reveal">
+        <div class="achievement-icon">⚖️</div>
+        <div>
+          <h3>Founder of Rhetorix</h3>
+          <p>
+            Founded an online debate platform and organized debate events,
+            including Clash of Intellects.
+          </p>
+        </div>
+      </article>
+
+      <article class="card achievement reveal">
+        <div class="achievement-icon">🎙️</div>
+        <div>
+          <h3>Jagran Youth Parliament</h3>
+          <p>
+            Participated in Jagran Youth Parliament, gaining experience
+            in discussion and public expression.
+          </p>
+        </div>
+      </article>
+
+      <article class="card achievement reveal">
+        <div class="achievement-icon">💻</div>
+        <div>
+          <h3>Digital Project Development</h3>
+          <p>
+            Developed and deployed projects including Curify, Aesthetic Quest,
+            and Rhetorix, alongside the Hopventure game project.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Let's Connect</p>
+      <h2 class="section-title">
+        Have an idea? <span class="gradient">Let's talk.</span>
+      </h2>
+      <p class="section-desc">
+        Interested in collaborating, discussing ideas, or connecting professionally?
+        Feel free to reach out.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-copy reveal">
+        <p>
+          I'm open to meaningful conversations, learning opportunities,
+          and interesting projects.
+        </p>
+
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:agrimatripathi1118@gmail.com">
+            <small>Email</small>
+            <strong>agrimatripathi1118@gmail.com ↗</strong>
+          </a>
+
+          <a class="contact-link"
+             href="https://www.linkedin.com/in/agrima-tripathi-733ab1410"
+             target="_blank" rel="noopener noreferrer">
+            <small>LinkedIn</small>
+            <strong>Connect professionally ↗</strong>
+          </a>
+
+          <a class="contact-link"
+             href="https://github.com/agrimatripathi1118-sketch"
+             target="_blank" rel="noopener noreferrer">
+            <small>GitHub</small>
+            <strong>Explore my repositories ↗</strong>
+          </a>
+        </div>
+      </div>
+
+      <form class="card contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input id="name" name="name" type="text"
+                 placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input id="email" name="email" type="email"
+                 placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text"
+                 placeholder="What would you like to discuss?" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message"
+                    placeholder="Write your message..." required></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit">
+          Prepare Email ↗
+        </button>
+
+        <p class="form-note">
+          This form opens your email app with a prepared message.
+          It does not store messages on a server.
+        </p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> Agrima Tripathi. Built with curiosity and purpose.</p>
+    <a class="back-top" href="#home">Back to Top ↑</a>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- JAVASCRIPT -->
+<script>
+/* DARK / LIGHT MODE */
+const themeToggle = document.getElementById("themeToggle");
+
+try {
+  if (localStorage.getItem("agrima-theme") === "light") {
+    document.body.classList.add("light");
+  }
+} catch (error) {
+  // Theme still works if local storage is unavailable.
+}
+
+function updateThemeButton() {
+  const isLight = document.body.classList.contains("light");
+  themeToggle.textContent = isLight ? "☾" : "☀";
+  themeToggle.setAttribute(
+    "aria-label",
+    isLight ? "Switch to dark mode" : "Switch to light mode"
+  );
+}
+
+updateThemeButton();
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+
+  try {
+    localStorage.setItem(
+      "agrima-theme",
+      document.body.classList.contains("light") ? "light" : "dark"
+    );
+  } catch (error) {
+    // Theme changes for this page even if storage is unavailable.
+  }
+
+  updateThemeButton();
+});
+
+/* MOBILE NAVIGATION */
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.textContent = open ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  });
+});
+
+/* PROJECT FILTERS */
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projectCards = document.querySelectorAll(".project-card");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
+
+    filterButtons.forEach(item => {
+      const active = item === button;
+      item.classList.toggle("active", active);
+      item.setAttribute("aria-pressed", String(active));
+    });
+
+    projectCards.forEach(card => {
+      card.hidden =
+        filter !== "all" && card.dataset.category !== filter;
+    });
+  });
+});
+
+/* PROJECT DETAILS MESSAGE */
+const toast = document.getElementById("toast");
+let toastTimer;
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 4500);
+}
+
+document.querySelectorAll(".details-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    showToast(
+      button.dataset.title + " — " + button.dataset.description
+    );
+  });
+});
+
+/* CONTACT FORM */
+document.getElementById("contactForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+
+  if (!form.reportValidity()) return;
+
+  const name = document.getElementById("name").value.trim();
+  const senderEmail = document.getElementById("email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  const body =
+    "Name: " + name + "\n" +
+    "Email: " + senderEmail + "\n\n" +
+    "Message:\n" + message;
+
+  const mailto =
+    "mailto:agrimatripathi1118@gmail.com" +
+    "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body);
+
+  window.location.href = mailto;
+});
+
+/* SCROLL REVEAL ANIMATIONS */
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealElements.forEach(element => observer.observe(element));
+} else {
+  revealElements.forEach(element => element.classList.add("visible"));
+}
+
+/* AUTOMATIC FOOTER YEAR */
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
+
+</body>
+</html>
